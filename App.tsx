@@ -106,6 +106,8 @@ export default function App() {
     49: [],
   };
 
+  let total = 0;
+  let num = 0;
   function specialNumCarculate() {
     // format 12/15 200
     var input = document.getElementById('input').value;
@@ -114,7 +116,17 @@ export default function App() {
     nums.forEach((item) => {
       specialNum[item].push(inputs[1]);
     });
-    console.log(specialNum);
+  }
+
+  function showDetail(e) {
+    total = 0;
+    if (e.target.innerHTML != '' && 'td' === e.target.tagName.toLowerCase()) {
+      num = parseInt(e.target.innerHTML);
+      console.log(num);
+      specialNum[num].forEach((value) => {
+        total += value;
+      });
+    }
   }
 
   return (
@@ -130,7 +142,7 @@ export default function App() {
       输入：
       <textarea id="input"></textarea>
       <button onClick={specialNumCarculate}>计算</button>
-      <table style={{ border: 1 }}>
+      <table id="table" style={{ border: 1 }} onMouseOver={showDetail}>
         <tr>
           <th>鼠</th>
           <th>牛</th>
@@ -216,6 +228,7 @@ export default function App() {
           <td></td>
         </tr>
       </table>
+      号码/总价：{num}/{total}
     </div>
   );
 }
