@@ -53,6 +53,70 @@ export default function App() {
   ];
 
   var output = convert(input);
+
+  let specialNum = {
+    1: [],
+    2: [],
+    3: [],
+    4: [],
+    5: [],
+    6: [],
+    7: [],
+    8: [],
+    9: [],
+    10: [],
+    11: [],
+    12: [],
+    13: [],
+    14: [],
+    15: [],
+    16: [],
+    17: [],
+    18: [],
+    19: [],
+    201: [],
+    21: [],
+    22: [],
+    23: [],
+    24: [],
+    25: [],
+    26: [],
+    27: [],
+    28: [],
+    29: [],
+    30: [],
+    31: [],
+    32: [],
+    33: [],
+    34: [],
+    35: [],
+    36: [],
+    37: [],
+    38: [],
+    39: [],
+    40: [],
+    41: [],
+    42: [],
+    43: [],
+    44: [],
+    45: [],
+    46: [],
+    47: [],
+    48: [],
+    49: [],
+  };
+
+  function specialNumCarculate() {
+    // format 12/15 200
+    var input = document.getElementById('input').value;
+    var inputs = input.split(' ');
+    var nums = inputs[0].split('/');
+    nums.forEach((item) => {
+      specialNum[item].push(inputs[1]);
+    });
+    console.log(specialNum);
+  }
+
   return (
     <div>
       <h1>Hello StackBlitz!</h1>
@@ -60,6 +124,98 @@ export default function App() {
       <div>{arr.join()}</div>
       <div>{value}</div>
       <div>{JSON.stringify(output)}</div>
+      <br />
+      <br />
+      <br />
+      输入：
+      <textarea id="input"></textarea>
+      <button onClick={specialNumCarculate}>计算</button>
+      <table style={{ border: 1 }}>
+        <tr>
+          <th>鼠</th>
+          <th>牛</th>
+          <th>虎</th>
+          <th>兔</th>
+          <th>龙</th>
+          <th>蛇</th>
+          <th>马</th>
+          <th>羊</th>
+          <th>猴</th>
+          <th>鸡</th>
+          <th>狗</th>
+          <th>猪</th>
+        </tr>
+        <tr>
+          <td>4</td>
+          <td>3</td>
+          <td>2</td>
+          <td>1</td>
+          <td>12</td>
+          <td>11</td>
+          <td>10</td>
+          <td>9</td>
+          <td>8</td>
+          <td>7</td>
+          <td>6</td>
+          <td>5</td>
+        </tr>
+        <tr>
+          <td>16</td>
+          <td>15</td>
+          <td>14</td>
+          <td>13</td>
+          <td>24</td>
+          <td>23</td>
+          <td>22</td>
+          <td>21</td>
+          <td>20</td>
+          <td>19</td>
+          <td>18</td>
+          <td>17</td>
+        </tr>
+        <tr>
+          <td>28</td>
+          <td>27</td>
+          <td>26</td>
+          <td>25</td>
+          <td>36</td>
+          <td>35</td>
+          <td>34</td>
+          <td>33</td>
+          <td>32</td>
+          <td>31</td>
+          <td>30</td>
+          <td>29</td>
+        </tr>
+        <tr>
+          <td>40</td>
+          <td>39</td>
+          <td>38</td>
+          <td>37</td>
+          <td>48</td>
+          <td>47</td>
+          <td>46</td>
+          <td>45</td>
+          <td>44</td>
+          <td>43</td>
+          <td>42</td>
+          <td>41</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td>49</td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+      </table>
     </div>
   );
 }
