@@ -54,7 +54,9 @@ export default function App() {
 
   var output = convert(input);
 
-  let specialNum = {
+  const [total, setTotal] = React.useState(0);
+  const [num, setNum] = React.useState(0);
+  const [specialNum, setSpecialNum] = React.useState({
     1: [],
     2: [],
     3: [],
@@ -74,7 +76,7 @@ export default function App() {
     17: [],
     18: [],
     19: [],
-    201: [],
+    20: [],
     21: [],
     22: [],
     23: [],
@@ -104,10 +106,8 @@ export default function App() {
     47: [],
     48: [],
     49: [],
-  };
+  });
 
-  let total = 0;
-  let num = 0;
   function specialNumCarculate() {
     // format 12/15 200
     var input = document.getElementById('input').value;
@@ -119,13 +119,20 @@ export default function App() {
   }
 
   function showDetail(e) {
-    total = 0;
-    if (e.target.innerHTML != '' && 'td' === e.target.tagName.toLowerCase()) {
-      num = parseInt(e.target.innerHTML);
-      console.log(num);
+    setTotal(0);
+    if (
+      e.target.innerHTML != '' &&
+      e.target.innerHTML != undefined &&
+      'td' === e.target.tagName.toLowerCase()
+    ) {
+      let num = parseInt(e.target.innerHTML);
+      setNum(num);
+
+      var total = 0;
       specialNum[num].forEach((value) => {
-        total += value;
+        total += parseInt(value);
       });
+      setTotal(total);
     }
   }
 
@@ -141,7 +148,7 @@ export default function App() {
       <br />
       输入：
       <textarea id="input"></textarea>
-      <button onClick={specialNumCarculate}>计算</button>
+      <button onClick={specialNumCarculate}>输入数据</button>
       <table id="table" style={{ border: 1 }} onMouseOver={showDetail}>
         <tr>
           <th>鼠</th>
